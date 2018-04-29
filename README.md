@@ -16,7 +16,7 @@ npm install vdom-tag
 
 ```js
 import h from 'virtual-dom/h'
-import createElement from 'virtual-dom/createElement'
+import createElement from 'virtual-dom/create-element'
 import createTag from 'vdom-tag'
 
 const html = createTag(h)
