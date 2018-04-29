@@ -1,13 +1,11 @@
 {
-  "name": "npm-package-starter",
+  "name": "vdom-tag",
   "version": "0.1.0",
-  "description":
-    "A boilerplate to help you get started creating a npm package.",
+  "description": "A tag function to build virtual-dom",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
-    "build":
-      "npm run clean && BABEL_ENV=production rollup --config rollup.config.js",
+    "build": "npm run clean && BABEL_ENV=production rollup --config rollup.config.js",
     "prepare": "npm run clean && npm run build",
     "test": "jest"
   },
