@@ -1,4 +1,4 @@
-import { flatMap, escapeHTML, isEmpty } from './utils'
+import { flatMap, isEmpty } from './utils'
 
 const unionType = (() => {
   let i = 0
@@ -40,7 +40,7 @@ export function tokenizer(str, initialState = State.Text, initialAcc = '') {
       case State.Text:
         if (c === '<') {
           if (!isEmpty(acc)) {
-            tokens.push({ type: Token.Text, value: escapeHTML(acc) })
+            tokens.push({ type: Token.Text, value: acc })
           }
           acc = ''
           state = State.Tag
@@ -205,7 +205,7 @@ export function variableTokenizer(
     case State.Text:
       if (typeof variable === 'object') {
         if (!isEmpty(acc)) {
-          tokens.push({ type: Token.Text, value: escapeHTML(acc) })
+          tokens.push({ type: Token.Text, value: acc })
         }
 
         tokens.push({ type: Token.VTree, value: variable })
@@ -213,13 +213,13 @@ export function variableTokenizer(
         acc = ''
       } else {
         if (!isEmpty(acc)) {
-          tokens.push({ type: Token.Text, value: escapeHTML(acc) })
+          tokens.push({ type: Token.Text, value: acc })
         }
 
         if (!isEmpty(variable)) {
           tokens.push({
             type: Token.Text,
-            value: escapeHTML(variable.toString())
+            value: variable.toString()
           })
         }
 
